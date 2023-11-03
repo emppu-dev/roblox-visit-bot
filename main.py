@@ -1,5 +1,5 @@
 import random
-import subprocess, sys
+import subprocess, sys, psutil
 import time, datetime
 import requests
 
@@ -13,7 +13,7 @@ else:
     log("Invalid arguments provided")
     exit()
 
-log(f"Visit botting {gameid}")
+log(f"Visit bot started, GID: {gameid}")
 
 try:
     with open("cookies.txt", "r") as cookies:
@@ -39,6 +39,8 @@ def Clean():
 
     log("Roblox killed and fixed common errors")
 
+found_process = False
+
 while True:
     try:
         cookie = random.choice(cookies)
@@ -48,8 +50,18 @@ while True:
             xsrf_token = session.post("https://auth.roblox.com/v1/authentication-ticket/", headers={"referer":f"https://www.roblox.com/games/{gameid}"}).headers["rbx-authentication-ticket"]
             browserId = random.randint(1000000, 10000000)
             subprocess.run(f"start roblox-player:1+launchmode:play+gameinfo:{xsrf_token}+launchtime:{browserId}+placelauncherurl:https%3A%2F%2Fassetgame.roblox.com%2Fgame%2FPlaceLauncher.ashx%3Frequest%3DRequestGame%26browserTrackerId%3D{browserId}%26placeId%3D{gameid}%26isPlayTogetherGame%3Dfalse+browsertrackerid:{browserId}+robloxLocale:en_us+gameLocale:en_us+channel:", shell=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
-            log(f"Succesfully launched Roblox as {getName()}")
-            time.sleep(20)
-            Clean()
+            if not found_process:
+                for process in psutil.process_iter(attrs=['pid', 'name']):
+                    if "RobloxPlayerBeta.exe" in process.info['name']:
+                        log(f"Found RobloxPlayerBeta.exe running, PID: {process.info['pid']}")
+                        found_process = True
+                        break
+
+            if found_process:
+                log(f"Succesfully launched Roblox as {getName()}")
+                time.sleep(20)
+                Clean()
+                found_process = False
+
     except:
         log("Error launching Roblox. Invalid cookie?")
