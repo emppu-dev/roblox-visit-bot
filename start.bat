@@ -1,1 +1,1 @@
-python main.py REPLACE-THIS-WITH-GAME-ID
+python main.py 17365264579
