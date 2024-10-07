@@ -23,7 +23,7 @@ except:
 
 def getName():
     try:
-        return session.get('https://www.roblox.com/mobileapi/userinfo').json()["UserName"]
+        return session.get('https://users.roblox.com/v1/users/authenticated').json()["displayName"]
     except:
         log("Invalid cookie")
         return
