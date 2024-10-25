@@ -26,7 +26,7 @@ async def Main():
 async def ReadOrCreateCookiesFile():
     try:
         with open("cookies.txt") as cookies:
-            return cookies.read().splitlines()
+            cookies = cookies.read().splitlines()
         if cookies:
             return cookies
         else:
