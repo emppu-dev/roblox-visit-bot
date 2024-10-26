@@ -2,23 +2,15 @@
 Simple Roblox visit bot.
 
 ## 🛠️ Usage
-Install python [here](https://www.python.org/downloads/)
-INSTALL TO PATH!!!
-
-Get your Roblox cookie
-Inspect element -> Application -> Copy the value of .ROBLOSECURITY
-Put the cookie inside of cookies.txt
-You can use multiple cookies by separating them on new lines in the cookies.txt
-
-Change the game id in the start.bat file
-Run start.bat
+- Download and install python from [here](https://www.python.org/downloads/) to **PATH**
+- Get your Roblox .ROBLOSECURITY token and put it inside cookies.txt. You can put multiple token
+- Execute install.bat
 
 ## 📷 Preview
 ![image](https://github.com/emppu-dev/roblox-visit-bot/assets/83163481/a76113f4-256f-4a64-ad00-1590bec55db7)
 
-
 ## ⚠️ Disclaimer
-This tool is provided for educational purposes only. Users are responsible for ensuring their actions comply with all laws and regulations. The developer is not liable for any misuse or unlawful activities conducted using this tool.
+This tool is intended for educational purposes only. Users are solely responsible for ensuring that their actions are in full compliance with applicable laws and regulations. The developer assumes no liability for any misuse or illegal activities carried out using this tool.
 
 ## 📄 License
 [MIT](https://choosealicense.com/licenses/mit/)
