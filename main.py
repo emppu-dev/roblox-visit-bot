@@ -30,7 +30,7 @@ async def ReadOrCreateCookiesFile():
         if cookies:
             return cookies
         else:
-            await Log(f"The cookies.txt file is empty! {ex}", True)
+            await Log(f"The cookies.txt file is empty!", True)
             return None
     except Exception as ex:
         await Log(f"cookies.txt not found! Exception: {ex}", True)
